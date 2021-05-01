@@ -1,6 +1,8 @@
 import React from 'react'
 
-const WeatherCard = ({heading, location, weatherMain, weatherDesc, weatherIcon}) => {
+const WeatherCard = ({ heading, location, weatherMain, weatherDesc, weatherIcon }) => {
+    const iconURL = `http://openweathermap.org/img/wn/${weatherIcon}.png`;
+
     return (
         <div className="card m-4">
             <div className="row justify-content-center m-4">
@@ -17,7 +19,8 @@ const WeatherCard = ({heading, location, weatherMain, weatherDesc, weatherIcon})
                     <div className="weather-desc h4">{weatherDesc}</div>
                 </div>
                 <div className="row w-100 m-1 justify-content-center">
-                    <div className="weather-icon h4">{weatherIcon}</div>
+                    {weatherIcon.length ? <img className="weather-icon" src={iconURL} alt={weatherDesc} style={{ width: "10rem", height: "10rem" }}></img> : null}
+
                 </div>
             </div>
         </div>
